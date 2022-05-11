@@ -51,6 +51,14 @@ CleverTap.setLocation(34.15, -118.20);
 CleverTap.recordEvent('testEvent');
 ```
 
+#### Record an event with event Properties  
+```javascript 
+CleverTap.recordEvent('Product Viewed', {'Product Name': 'Dairy Milk',
+                                         'Category': 'Chocolate',
+                                         'Amount': 20.00
+                                        });
+```
+
 #### Record Charged event
 ```javascript 
 CleverTap.recordChargedEvent({'totalValue': 20, 'category': 'books'}, [{'title': 'book1'}, {'title': 'book2'}, {'title': 'book3'}]);
