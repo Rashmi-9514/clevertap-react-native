@@ -4,7 +4,7 @@
 
      Link CleverTap for React Native 0.59 or below & Not Using Cocoapods
 
-2. `react-native link clevertap-react-native` **or** [follow the manual linking instructions below](#manual-linking).
+2. `react-native link clevertap-react-native` **or** [follow the manual linking instructions below](install.md#manual-linking).
 
     **Note:**
     
@@ -25,14 +25,6 @@
 	};
     ```
     
-    3. The CleverTap SDK is not yet upgraded to AndroidX. Add the following to your gradle.properties file
-    
-    
-  
-    ```android.useAndroidX=true
-   	 android.enableJetifier=true
-    ```
-
   
   ## Steps for iOS ##
   
@@ -52,7 +44,7 @@ end
 - Run `pod install` from your ios directory.
 
 ### iOS without podspec
-- Add `pod 'CleverTap-iOS-SDK'` as a dependency in your ios/Podfile.  [See an example Podfile here](https://github.com/CleverTap/clevertap-react-native/blob/master/Starter/ios/Podfile).
+- Add `pod 'CleverTap-iOS-SDK'` as a dependency in your ios/Podfile.
 - `cd ios; pod install --repo-update`
 - Note that after pod install, open your project using **[MyProject].xcworkspace** instead of the original .xcodeproj.
 
@@ -60,13 +52,6 @@ end
 
 If you're on RN 0.60 or your project configuration doesn't allow to add `use_frameworks!` in the podfile, alternatively, you can add `use_modular_headers!` to enable the stricter search paths and module map generation for all of your pods, or you can add `:modular_headers => true` to a single pod declaration to enable for only that pod.
 
-### Install Specific Version of CleverTap iOS SDK's
-
-By default this integration pulls in the latest versions of the CleverTap iOS SDK. If you rather want to use a specific version, simply specify the required versions in your podfile directly:
-
-```ruby
-pod 'CleverTap-iOS-SDK', '3.9.2'
-```
 
 ## Steps for Android ##
 
@@ -75,25 +60,53 @@ pod 'CleverTap-iOS-SDK', '3.9.2'
 ```gradle
 dependencies {
 	...
-    implementation 'com.clevertap.android:clevertap-android-sdk:4.0.0'
-    implementation 'com.google.android.gms:play-services-base:17.4.0'
-    implementation 'com.google.firebase:firebase-messaging:20.2.4'
-    implementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video
-    implementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video
-    implementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox
-    implementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox
-    implementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox
-    implementation 'com.google.android.material:material:1.2.1' //Mandatory for App Inbox
-    implementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox
+	//androidx
     implementation 'androidx.core:core:1.3.0'
-    implementation 'androidx.fragment:fragment:1.1.0' // InApp
-    //Mandatory for React Native SDK v0.3.9 and above add the following -
-    implementation 'com.android.installreferrer:installreferrer:2.1'
+    implementation 'androidx.appcompat:appcompat:1.3.1'       //Mandatory for App Inbox
+    implementation 'androidx.fragment:fragment:1.3.6'         //Mandatory for InApp
+    implementation 'androidx.recyclerview:recyclerview:1.2.1' //Mandatory for App Inbox
+    implementation 'androidx.viewpager:viewpager:1.0.0'       //Mandatory for App Inbox
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    //Note - ExoPlayer dependencies are optional but all 3 are required for Audio/Video Inbox and InApp Messages
+    //com.android
+    implementation 'com.android.installreferrer:installreferrer:2.2' //Mandatory for React Native SDK v0.3.9+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //react-native  libs
+    implementation "com.facebook.react:react-native:+"
+
+    //com.google
+    implementation 'com.google.android.gms:play-services-base:17.6.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation 'com.google.android.material:material:1.4.0'          //Mandatory for App Inbox
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'      //Optional for Audio/Video
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.19.1'  //Optional for Audio/Video
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.1'   //Optional for Audio/Video
+    //implementation 'com.google.android.gms:play-services-ads:19.0.1'
+
+
+    //clevertap
+    implementation 'com.clevertap.android:clevertap-android-sdk:7.0.1'
+
+
+    // other libs
+	implementation 'com.github.bumptech.glide:glide:4.12.0' //Mandatory for App Inbox
+	
+    //Note - ExoPlayer/AndroidX Media3 dependencies are optional but all 3 are required for Audio/Video Inbox and InApp Messages
 }
 ```
+
+### Migrating from `Exoplayer` to `AndroidX Media3` (Optional)
+
+Clevertap ReactNative SDK supports `AndroidX Media3` from `v3.0.0+` to replace the deprecated `ExoPlayer` libraries. For migration change the following dependencies.
+
+|         Old Dependency | New Dependency      |
+|-----------------------:|:--------------------|
+|     `com.google.android.exoplayer:exoplayer:2.19.1` | `androidx.media3:media3-exoplayer:1.1.1`     |
+| `com.google.android.exoplayer:exoplayer-hls:2.19.1` | `androidx.media3:media3-exoplayer-hls:1.1.1` |
+|  `com.google.android.exoplayer:exoplayer-ui:2.19.1` | `androidx.media3:media3-ui:1.1.1`  |
+
+
 ### Troubleshooting  
 
 If you face the following crash at runtime -
@@ -130,7 +143,7 @@ maven {
       }
 ```
 
-## Manual Linking ##
+## Manual Linking
 
 #### iOS:
 - Drag and Drop node_modules/clevertap-react-native/ios/CleverTapReact.xcodeproj into the Libraries folder of your project in XCode ([see Step 1 here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#manual-linking)).

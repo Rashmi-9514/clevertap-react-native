@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/CleverTap/clevertap-ios-sdk/blob/master/docs/images/clevertap-logo.png" height="158"/>
+ <img src="https://github.com/CleverTap/clevertap-ios-sdk/blob/master/docs/images/clevertap-logo.png" width = "50%"/>
 </p>
 
 # CleverTap React Native SDK
@@ -22,17 +22,30 @@ To get started, sign up [here](https://clevertap.com/live-product-demo/).
 3. Follow the [integration instructions](./docs/integration.md)
 
 ## 📚 Additional Resources
-- [CleverTap iOS SDK Integration guide](https://support.clevertap.com/docs/ios/getting-started.html)
-- [CleverTap Android SDK Integration guide](https://support.clevertap.com/docs/android/getting-started.html)
+- [CleverTap iOS SDK Integration guide](https://developer.clevertap.com/docs/ios)
+- [CleverTap Android SDK Integration guide](https://developer.clevertap.com/docs/android)
 
-## 💻 Example Usage
+## 📲 CleverTap iOS Push Templates SDK
 
-View [Example Usage](https://github.com/CleverTap/clevertap-react-native/blob/master/docs/usage.md) to see how the CleverTap React Native can be implemented.
+CleverTap Push Templates SDK helps you engage with your users using fancy push notification templates built specifically to work with [CleverTap Push Templates SDK](https://github.com/CleverTap/CTNotificationContent).
+Find the integration steps for the CleverTap Push Templates SDK [here](./docs/iospushtemplates.md)
+
+## ℹ️ Version Support
+| CleverTap RN SDK | React Native | Supports New Architecture? |
+|------------------|--------------|----------------------------|
+| 3.0.0+           | >=0.65       | ✅ (>=0.71)                 |
+| <=2.2.1          | >=0.49.5     | ❌                          |
+
+## 📑 Documentation & Example
+
+- [See the CleverTap React Native Usage Documentation](/docs/usage.md)
+
+- [See the included Example Project](/Example/)
 
 
 ## 🆕 Changelog
 
-Refer to the [CleverTap React Native SDK Change Log](https://github.com/CleverTap/clevertap-react-native/blob/master/CHANGELOG.md).
+Refer to the [CleverTap React Native SDK Change Log](/CHANGELOG.md).
 
 ## ⁉️ Help and Questions?
 

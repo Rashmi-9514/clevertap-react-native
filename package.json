@@ -1,12 +1,11 @@
 {
   "name": "clevertap-react-native",
-  "version": "0.5.0",
+  "version": "3.2.0",
   "description": "CleverTap React Native SDK.",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node install.js",
     "lint": "./node_modules/.bin/eslint index.js */**.js",
     "lint-fix": "./node_modules/.bin/eslint --fix index.js */**.js"
   },
@@ -32,11 +31,8 @@
     "react-native",
     "segmentation"
   ],
-  "dependencies": {
-    "extract-zip": "^1.6.6"
-  },
   "peerDependencies": {
-    "react-native": ">=0.47.0"
+    "react-native": ">=0.65.0"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
@@ -47,7 +43,15 @@
     "eslint-plugin-react": "^6.2.0",
     "eslint-plugin-standard": "^2.0.0",
     "i": "^0.3.6",
-    "react": "^16.3.2",
-    "react-native": "^0.49.5"
+    "react": "^17.0.2",
+    "react-native": ">=0.65.0"
+  },
+  "codegenConfig": {
+    "name": "CTTurboModuleSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.clevertap.react"
+    }
   }
 }
